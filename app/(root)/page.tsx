@@ -1,4 +1,5 @@
 import HeaderBox from "@/components/customs/HeaderBox";
+import TotalBalanceBox from "@/components/customs/TotalBalanceBox";
 
 const Dashboard = () => {
   const loggedIn = {
@@ -14,6 +15,12 @@ const Dashboard = () => {
             title="Welcome"
             user={loggedIn?.firstName || "Guest"}
             subtext="Access and manage your account and transactions efficiently."
+          />
+
+          <TotalBalanceBox
+            accounts={[]}
+            totalBanks={1}
+            totalCurrentBalance={1250.35}
           />
         </header>
       </div>
