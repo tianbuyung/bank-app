@@ -1,4 +1,4 @@
-import { formatAmount } from "@/lib/utils";
+import AnimatedCounter from "../animations/AnimatedCounter";
 
 const TotalBalanceBox = ({
   accounts = [],
@@ -17,9 +17,9 @@ const TotalBalanceBox = ({
         <div className="flex flex-col gap-2">
           <p className="total-balance-label">Total Current Balance</p>
 
-          <p className="total-balance-amount flex-center gap-2">
-            {formatAmount(totalCurrentBalance)}
-          </p>
+          <div className="total-balance-amount flex-center gap-2">
+            <AnimatedCounter amount={totalCurrentBalance} />
+          </div>
         </div>
       </div>
     </section>
