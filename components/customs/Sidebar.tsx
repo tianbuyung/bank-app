@@ -21,6 +21,7 @@ const Sidebar = (user: SiderbarProps) => {
             alt="Essence Bank Logo"
             className="size-[24px] max-xl:size-14"
           />
+
           <h1 className="sidebar-logo">Essence</h1>
         </Link>
         {sidebarLinks.map((item) => {
@@ -43,6 +44,7 @@ const Sidebar = (user: SiderbarProps) => {
                   })}
                 />
               </div>
+
               <p className={cn("sidebar-label", { "!text-white": isActive })}>
                 {item.label}
               </p>
