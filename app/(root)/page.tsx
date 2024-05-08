@@ -29,7 +29,11 @@ const Dashboard = () => {
         RECENT TRANSACTIONS
       </div>
 
-      <RightSidebar user={loggedIn} transactions={[]} banks={[{}, {}]} />
+      <RightSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ currentBalance: 100 }, { currentBalance: 400 }]}
+      />
     </section>
   );
 };
