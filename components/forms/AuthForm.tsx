@@ -6,6 +6,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
@@ -14,6 +15,7 @@ import { authFormSchema } from "@/lib/utils";
 
 const AuthForm = ({ type }: AuthFormProps) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof authFormSchema>>({
@@ -28,7 +30,9 @@ const AuthForm = ({ type }: AuthFormProps) => {
   function onSubmit(values: z.infer<typeof authFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    setIsLoading(true);
     console.log(values);
+    setIsLoading(false);
   }
 
   return (
@@ -82,7 +86,18 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 autoComplete={"current-password"}
               />
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit" className="form-btn" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 size={20} className="animate-spin" /> &nbsp;
+                    Loading...
+                  </>
+                ) : type === "sign-in" ? (
+                  "Sign In"
+                ) : (
+                  "Sign Up"
+                )}
+              </Button>
             </form>
           </Form>
         </>
