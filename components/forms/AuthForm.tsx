@@ -71,6 +71,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 name={"email"}
                 label={"Email"}
                 placeholder={"Enter your email address"}
+                autoComplete={"email"}
               />
 
               <CustomInput
@@ -78,6 +79,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 name={"password"}
                 label={"Password"}
                 placeholder={"Enter your password"}
+                autoComplete={"current-password"}
               />
 
               <Button type="submit">Submit</Button>

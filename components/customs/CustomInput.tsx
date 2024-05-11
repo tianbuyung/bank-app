@@ -1,7 +1,13 @@
 import { Control, FieldPath } from "react-hook-form";
 import { z } from "zod";
 
-import { FormControl, FormField, FormLabel, FormMessage } from "../ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import { authFormSchema } from "@/lib/utils";
 
@@ -10,15 +16,22 @@ interface CustomInput {
   name: FieldPath<z.infer<typeof authFormSchema>>; //"email" | "password";
   label: string;
   placeholder: string;
+  autoComplete: string;
 }
 
-const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
+const CustomInput = ({
+  control,
+  name,
+  label,
+  placeholder,
+  autoComplete,
+}: CustomInput) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <div className="form-item">
+        <FormItem className="form-item">
           <FormLabel className="form-label">{label}</FormLabel>
 
           <div className="flex w-full flex-col">
@@ -27,13 +40,14 @@ const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
                 placeholder={placeholder}
                 className="input-class"
                 type={name === "password" ? "password" : "text"}
+                autoComplete={autoComplete}
                 {...field}
               />
             </FormControl>
 
             <FormMessage className="form-message mt-2" />
           </div>
-        </div>
+        </FormItem>
       )}
     />
   );
