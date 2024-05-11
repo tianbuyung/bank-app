@@ -202,6 +202,7 @@ export const authFormSchema = z.object({
   address1: z.string().max(50),
   state: z.string().min(2).max(2),
   postalCode: z.string().min(3).max(6),
+  dateOfBirth: z.date(),
   ssn: z.string().min(3),
   // both
   email: z.string().email(),

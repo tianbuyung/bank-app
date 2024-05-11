@@ -115,7 +115,14 @@ const AuthForm = ({ type }: AuthFormProps) => {
                     />
                   </div>
                   <div className="flex gap-4">
-                    {/* Date Input */}
+                    <CustomInput
+                      control={form.control}
+                      name="dateOfBirth"
+                      label="Date of Birth"
+                      placeholder="YYYY-MM-DD"
+                      type="date"
+                      autoComplete="bday"
+                    />
 
                     <CustomInput
                       control={form.control}
