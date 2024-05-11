@@ -104,7 +104,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                       control={form.control}
                       name="state"
                       label="State"
-                      placeholder="Example: NY"
+                      placeholder="Ex: NY"
                       autoComplete="address-level1"
                     />
 
@@ -112,7 +112,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                       control={form.control}
                       name="postalCode"
                       label="Postal Code"
-                      placeholder="Example: 11101"
+                      placeholder="Ex: 11101"
                       autoComplete="postal-code"
                     />
                   </div>
@@ -130,7 +130,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
                       control={form.control}
                       name="ssn"
                       label="SSN"
-                      placeholder="Example: 1234"
+                      placeholder="Ex: 1234"
                       autoComplete="ssn"
                     />
                   </div>

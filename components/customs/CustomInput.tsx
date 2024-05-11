@@ -50,7 +50,7 @@ const CustomInput = ({
                   <FormControl>
                     <Button
                       className={cn(
-                        "w-[240px] font-normal rounded-lg border border-gray-300 text-gray-900",
+                        "w-[160px] sm:w-[240px] font-normal rounded-lg border border-gray-300 text-gray-900",
                         !field.value && "text-gray-500"
                       )}
                     >
