@@ -15,7 +15,8 @@ interface CustomInput {
   control: Control<z.infer<typeof authFormSchema>>;
   name: FieldPath<z.infer<typeof authFormSchema>>; //"email" | "password";
   label: string;
-  placeholder: string;
+  placeholder?: string;
+  type?: string;
   autoComplete: string;
 }
 
@@ -24,6 +25,7 @@ const CustomInput = ({
   name,
   label,
   placeholder,
+  type,
   autoComplete,
 }: CustomInput) => {
   return (
@@ -37,9 +39,9 @@ const CustomInput = ({
           <div className="flex w-full flex-col">
             <FormControl>
               <Input
-                placeholder={placeholder}
+                placeholder={placeholder || ""}
                 className="input-class"
-                type={name === "password" ? "password" : "text"}
+                type={type || "text"}
                 autoComplete={autoComplete}
                 {...field}
               />

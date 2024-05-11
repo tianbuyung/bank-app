@@ -70,20 +70,81 @@ const AuthForm = ({ type }: AuthFormProps) => {
         <>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              {type === "sign-up" && (
+                <>
+                  <div className="flex gap-4">
+                    <CustomInput
+                      control={form.control}
+                      name="firstName"
+                      label="First Name"
+                      placeholder="Enter your first name"
+                      autoComplete="given-name"
+                    />
+
+                    <CustomInput
+                      control={form.control}
+                      name="lastName"
+                      label="Last Name"
+                      placeholder="Enter your last name"
+                      autoComplete="family-name"
+                    />
+                  </div>
+                  <CustomInput
+                    control={form.control}
+                    name="address1"
+                    label="Address"
+                    placeholder="Enter your specific address"
+                    autoComplete="street-address"
+                  />
+
+                  <div className="flex gap-4">
+                    <CustomInput
+                      control={form.control}
+                      name="state"
+                      label="State"
+                      placeholder="Example: NY"
+                      autoComplete="address-level1"
+                    />
+
+                    <CustomInput
+                      control={form.control}
+                      name="postalCode"
+                      label="Postal Code"
+                      placeholder="Example: 11101"
+                      autoComplete="postal-code"
+                    />
+                  </div>
+                  <div className="flex gap-4">
+                    {/* Date Input */}
+
+                    <CustomInput
+                      control={form.control}
+                      name="ssn"
+                      label="SSN"
+                      placeholder="Example: 1234"
+                      autoComplete="ssn"
+                    />
+                  </div>
+                </>
+              )}
+
               <CustomInput
                 control={form.control}
-                name={"email"}
-                label={"Email"}
-                placeholder={"Enter your email address"}
-                autoComplete={"email"}
+                name="email"
+                label="Email"
+                placeholder="Enter your email address"
+                autoComplete="email"
               />
 
               <CustomInput
                 control={form.control}
-                name={"password"}
-                label={"Password"}
-                placeholder={"Enter your password"}
-                autoComplete={"current-password"}
+                name="password"
+                label="Password"
+                placeholder="Enter your password"
+                type="password"
+                autoComplete={
+                  type === "sign-in" ? "current-password" : "new-password"
+                }
               />
 
               <div className="flex flex-col gap-4">
