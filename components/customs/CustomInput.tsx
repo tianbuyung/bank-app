@@ -16,9 +16,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { Calendar } from "../ui/calendar";
 
+const formSchema = authFormSchema("sign-up");
+
 interface CustomInput {
-  control: Control<z.infer<typeof authFormSchema>>;
-  name: FieldPath<z.infer<typeof authFormSchema>>; //"email" | "password";
+  control: Control<z.infer<typeof formSchema>>;
+  name: FieldPath<z.infer<typeof formSchema>>; //"email" | "password";
   label: string;
   placeholder?: string;
   type?: string;
