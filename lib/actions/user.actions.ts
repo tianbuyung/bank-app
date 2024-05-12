@@ -8,7 +8,10 @@ import { parseStringify } from "../utils";
 
 export const signIn = async ({ email, password }: signInProps) => {
   try {
-    // Mutation / Database / Fetch
+    const { account } = await createAdminClient();
+    const response = await account.createEmailPasswordSession(email, password);
+
+    return parseStringify(response);
   } catch (error) {
     console.error("Error in sign in", error);
   }
@@ -49,6 +52,20 @@ export async function getLoggedInUser() {
     const { account } = await createSessionClient();
     return await account.get();
   } catch (error) {
+    console.error("Error in get logged in user", error);
     return null;
   }
 }
+
+export const logoutAccount = async () => {
+  try {
+    const { account } = await createSessionClient();
+
+    cookies().delete("appwrite-session");
+
+    await account.deleteSession("current");
+  } catch (error) {
+    console.error("Error in log out", error);
+    return null;
+  }
+};

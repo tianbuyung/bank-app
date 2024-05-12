@@ -1,17 +1,18 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 import Sidebar from "@/components/customs/Sidebar";
 import MobileNav from "@/components/customs/MobileNav";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = {
-    firstName: "Septian",
-    lastName: "Maulana",
-  };
+  const loggedIn = await getLoggedInUser();
+
+  if (!loggedIn) redirect("/sign-in");
 
   return (
     <main className="flex h-screen w-full font-inter">
