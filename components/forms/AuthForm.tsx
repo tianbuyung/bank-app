@@ -14,6 +14,7 @@ import { Form } from "@/components/ui/form";
 import CustomInput from "../customs/CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "../banks/PlaidLink";
 
 const AuthForm = ({ type }: AuthFormProps) => {
   const [user, setUser] = useState(null);
@@ -106,7 +107,9 @@ const AuthForm = ({ type }: AuthFormProps) => {
       </header>
 
       {user ? (
-        <div className="flex flex-col gap-4">{/* PlaidLink */}</div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
